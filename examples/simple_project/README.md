@@ -6,7 +6,6 @@ Expected variables:
 - `admin_email`
 - `organization_id`
 - `billing_account`
-- `credentials_path`
 
 [^]: (autogen_docs_start)
 
@@ -18,7 +17,6 @@ Expected variables:
 | admin_email | Admin user email on Gsuite | string | - | yes |
 | billing_account |  | string | - | yes |
 | organization_id |  | string | - | yes |
-| credentials_path |  | string | - | yes |
 
 ## Outputs
 

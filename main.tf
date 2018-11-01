@@ -95,9 +95,14 @@ resource "google_project" "project" {
   auto_create_network = "${var.auto_create_network}"
 
   labels = "${var.labels}"
-
-  app_engine = "${local.app_engine_config["${local.app_engine_enabled ? "enabled" : "disabled"}"]}"
 }
+
+resource "google_app_engine_application" "app_engine" {
+  count = "${local.app_engine_enabled == "false" ? 0 : 1}"
+  project     = "${google_project.project.project_id}"
+  location_id = "us-central"
+}
+
 
 /******************************************
   APIs configuration
@@ -135,7 +140,7 @@ data "google_compute_default_service_account" "default" {
  *****************************************/
 resource "null_resource" "delete_default_compute_service_account" {
   provisioner "local-exec" {
-    command = "${path.module}/scripts/delete-service-account.sh ${local.project_id} ${var.credentials_path} ${data.google_compute_default_service_account.default.id}"
+    command = "${path.module}/scripts/delete-service-account.sh ${local.project_id} ${data.google_compute_default_service_account.default.id}"
   }
 
   triggers {

@@ -17,10 +17,7 @@
 set -e
 
 PROJECT_ID=$1
-CREDENTIALS=$2
-SA_ID=$3
-
-export CLOUDSDK_AUTH_CREDENTIAL_FILE_OVERRIDE=$CREDENTIALS
+SA_ID=$2
 
 SA_LIST=$(gcloud --project="$PROJECT_ID" iam service-accounts list || exit 1)
 

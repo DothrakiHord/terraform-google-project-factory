@@ -14,15 +14,11 @@
  * limitations under the License.
  */
 
-locals {
-  credentials_file_path = "${var.credentials_path}"
-}
 
 /******************************************
   Provider configuration
  *****************************************/
 provider "google" {
-  credentials = "${file(local.credentials_file_path)}"
 }
 
 provider "gsuite" {
@@ -41,5 +37,4 @@ module "project-factory" {
   name              = "simple-sample-project"
   org_id            = "${var.organization_id}"
   billing_account   = "${var.billing_account}"
-  credentials_path  = "${local.credentials_file_path}"
 }

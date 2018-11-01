@@ -21,7 +21,6 @@ module "project-factory" {
   group_role          = "roles/editor"
   shared_vpc          = "shared_vpc_host_name"
   sa_group            = "test_sa_group@yourdomain.com"
-  credentials_path    = "${local.credentials_file_path}"
 
   shared_vpc_subnets = [
     "projects/base-project-196723/regions/us-east1/subnetworks/default",
@@ -90,7 +89,6 @@ The roles granted are specifically:
 | bucket_name | A name for a GCS bucket to create (in the bucket_project project), useful for Terraform state (optional) | string | `` | no |
 | bucket_project | A project to create a GCS bucket (bucket_name) in, useful for Terraform state (optional) | string | `` | no |
 | create_group | Whether to create the group or not | string | `false` | no |
-| credentials_path | Path to a Service Account credentials file with permissions documented in the readme | string | - | yes |
 | folder_id | The ID of a folder to host this project | string | `` | no |
 | group_name | A group to control the project by being assigned group_role - defaults to ${project_name}-editors | string | `` | no |
 | group_role | The role to give the controlling group (group_name) over the project (defaults to project editor) | string | `roles/editor` | no |

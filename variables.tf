@@ -88,10 +88,6 @@ variable "usage_bucket_prefix" {
   default     = ""
 }
 
-variable "credentials_path" {
-  description = "Path to a Service Account credentials file with permissions documented in the readme"
-}
-
 variable "shared_vpc_subnets" {
   description = "List of subnets fully qualified subnet IDs (ie. projects/$project_id/regions/$region/subnetworks/$subnet_id)"
   type        = "list"

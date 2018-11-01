@@ -14,12 +14,7 @@
  * limitations under the License.
  */
 
-locals {
-  credentials_file_path = "${var.credentials_path}"
-}
-
 provider "google" {
-  credentials = "${file(local.credentials_file_path)}"
 }
 
 module "project-factory" {
@@ -30,6 +25,5 @@ module "project-factory" {
   billing_account    = "${var.billing_account}"
   shared_vpc         = "${var.shared_vpc}"
   activate_apis      = ["compute.googleapis.com", "container.googleapis.com", "cloudbilling.googleapis.com"]
-  credentials_path   = "${local.credentials_file_path}"
   shared_vpc_subnets = "${var.shared_vpc_subnets}"
 }

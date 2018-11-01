@@ -55,7 +55,7 @@ provider "gsuite" {
   impersonated_user_email  = "$GSUITE_ADMIN_ACCOUNT"
   oauth_scopes             = [
                                "https://www.googleapis.com/auth/admin.directory.group",
-	                           "https://www.googleapis.com/auth/admin.directory.group.member"
+                                   "https://www.googleapis.com/auth/admin.directory.group.member"
                              ]
 }
 module "project-factory" {
@@ -74,7 +74,6 @@ module "project-factory" {
   sa_group                 = "$SA_GROUP"
   folder_id                = "$FOLDER_ID"
   activate_apis            = ["compute.googleapis.com", "container.googleapis.com"]
-  credentials_path         = "\${local.credentials_file_path}"
   app_engine {
     location_id = "$REGION"
     auth_domain = "$(echo $GSUITE_ADMIN_ACCOUNT | cut -d '@' -f2)"

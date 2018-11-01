@@ -18,7 +18,6 @@ Expected variables:
 - `admin_email`
 - `organization_id`
 - `billing_account`
-- `credentials_path`
 
 [^]: (autogen_docs_start)
 
@@ -30,7 +29,6 @@ Expected variables:
 | admin_email | Admin user email on Gsuite | string | - | yes |
 | billing_account | The ID of the billing account to associate this project with | string | - | yes |
 | organization_id | The organization id for the associated services | string | - | yes |
-| credentials_path | Path to a Service Account credentials file with permissions documented in the readme and above| string | - | yes |
 
 ## Outputs
 

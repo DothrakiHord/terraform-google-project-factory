@@ -32,7 +32,6 @@ module "project-factory" {
   name              = "appeng-sample"
   org_id            = "${var.organization_id}"
   billing_account   = "${var.billing_account}"
-  credentials_path  = "${local.credentials_file_path}"
 
   app_engine {
     location_id = "us-central"
